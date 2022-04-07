@@ -69,8 +69,6 @@ public class ListFilesAdapter extends RecyclerView.Adapter<ListFilesAdapter.View
         holder.btn.setOnLongClickListener(v -> {
             PopupMenu popupMenu = new PopupMenu(context, v);
             popupMenu.getMenu().add("DELETE");
-            popupMenu.getMenu().add("MOVE");
-            popupMenu.getMenu().add("RENAME");
             popupMenu.setOnMenuItemClickListener(item -> {
                 if (item.getTitle().equals("DELETE")) {
                     boolean deleted = selectedFile.delete();
