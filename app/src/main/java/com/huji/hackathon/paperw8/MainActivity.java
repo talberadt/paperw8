@@ -51,8 +51,7 @@ public class MainActivity extends AppCompatActivity {
                 dataList.setLayoutManager(gridLayoutManager);
                 dataList.setAdapter(adapter);
                 String path = Environment.getExternalStorageDirectory().toString() + "/Documents/new";
-                File dir = new File(path);
-                dir.mkdir();
+                new File(path).mkdir();
             }  else { requestPremission(); }
         });
 

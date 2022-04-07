@@ -1,8 +1,8 @@
 package com.huji.hackathon.paperw8;
 
-import android.os.Bundle;
-
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.os.Bundle;
 
 public class FileListActivity extends AppCompatActivity {
 
@@ -10,7 +10,5 @@ public class FileListActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_file_list);
-
-//        RecyclerView recyclerView = findViewById(R.id.)
     }
 }
