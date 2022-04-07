@@ -36,10 +36,11 @@ public class MainActivity extends AppCompatActivity {
         titles = new ArrayList<>();
         images = new ArrayList<>();
 
-        for(int i = 0; i < 5; i++) {
-            this.titles.add("car");
-            this.images.add(R.drawable.ic_baseline_drive_eta_24);
-        }
+        this.titles.add("גישה מהירה");
+        this.titles.add("רכב");
+        this.titles.add("חשבונות");
+        this.titles.add("לימודים");
+        this.images.add(R.drawable.ic_baseline_domain_verification_24);
 
         gridAdapter = new GridAdapter(this, titles, images);
         GridLayoutManager gridLayoutManager = new GridLayoutManager(this, 3, GridLayoutManager.VERTICAL, false);
@@ -49,9 +50,6 @@ public class MainActivity extends AppCompatActivity {
         addBtn = findViewById(R.id.addButton);
         addBtn.setOnClickListener(v -> {
             if (checkPrem()) {
-//                String path = Environment.getExternalStorageDirectory().toString() + "/Documents/new";
-//                File dir = new File(path);
-//                dir.mkdir();
                 Intent intent = new Intent(v.getContext(), folderCreationForm.class);
                 v.getContext().startActivity(intent);
 
@@ -65,7 +63,6 @@ public class MainActivity extends AppCompatActivity {
 
             titles.add(getIntent().getStringExtra("folderName"));
             images.add(R.drawable.ic_baseline_drive_eta_24);
-            Log.e("aaaa", "bbbbbb");
             dataList.setLayoutManager(gridLayoutManager);
             dataList.setAdapter(gridAdapter);
 
