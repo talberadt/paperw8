@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Gestionnaire de fichiers simple</string>
+    <string name="app_launcher_name">Gestionnaire de fichiers</string>
+    <string name="press_back_again">Appuyer à nouveau sur le bouton retour pour quitter</string>
+    <string name="go_to_home_folder">Aller au dossier par défaut</string>
+    <string name="set_as_home_folder">Définir en tant que dossier par défaut</string>
+    <string name="home_folder_updated">Dossier par défaut mis à jour</string>
+    <string name="copy_path">Copier le chemin du fichier dans le presse-papiers</string>
+    <string name="path_copied">Chemin du fichier copié</string>
+    <string name="select_audio_file">Veuillez sélectionner un fichier audio</string>
+    <string name="search_folder">Chercher dans le dossier</string>
+    <string name="rooted_device_only">Cette opération ne fonctionne que sur les périphériques rooté</string>
+    <string name="recents">Récents</string>
+    <string name="show_recents">Afficher les récents</string>
+    <string name="access_storage_prompt">Veuillez accorder à notre application l\'accès à tous vos fichiers, elle pourrait ne pas fonctionner correctement sans cela.</string>
+    <!-- Open as -->
+    <string name="open_as">Ouvert comme</string>
+    <string name="text_file">Fichier texte</string>
+    <string name="image_file">Fichier image</string>
+    <string name="audio_file">Fichier audio</string>
+    <string name="video_file">Fichier vidéo</string>
+    <string name="other_file">Autre fichier</string>
+    <!-- Compression -->
+    <string name="compress">Compresser</string>
+    <string name="decompress">Décompresser</string>
+    <string name="compress_as">Compresser sous</string>
+    <string name="compressing">Compression…</string>
+    <string name="decompressing">Décompression…</string>
+    <string name="compression_successful">Compression réussie</string>
+    <string name="decompression_successful">Décompression réussie</string>
+    <string name="compressing_failed">Compression ratée</string>
+    <string name="decompressing_failed">Décompression ratée</string>
+    <!-- Favorites -->
+    <string name="manage_favorites">Gérer les favoris</string>
+    <string name="go_to_favorite">Aller au favori</string>
+    <string name="favorites_activity_placeholder">Vous pouvez ajouter des dossiers souvent utilisés comme favoris pour y avoir accès rapidement depuis n\'importe où.</string>
+    <!-- File Editor -->
+    <string name="file_editor">Éditeur de fichier</string>
+    <!-- Storage analysis -->
+    <string name="storage_analysis">Analyse du stockage</string>
+    <string name="images">Images</string>
+    <string name="videos">Vidéos</string>
+    <string name="audio">Audio</string>
+    <string name="documents">Documents</string>
+    <string name="downloads">Téléchargements</string>
+    <string name="archives">Archives</string>
+    <string name="others">Autres</string>
+    <string name="storage_free">libre</string>
+    <string name="total_storage">Stockage total : %s</string>
+    <!-- Settings -->
+    <string name="enable_root_access">Activer les droits root</string>
+    <string name="press_back_twice">Obligation d\'appuyer deux fois sur la touche Retour pour quitter l\'application</string>
+    <!-- Strings displayed only on Google Play Store. Optional, but good to have -->
+    <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
+    <string name="app_title">Simple File Manager Pro – Gérer les fichiers facilement et rapidement</string>
+    <!-- Short description has to have less than 80 chars -->
+    <string name="app_short_description">Une application simple pour gérer vos fichiers sans publicité, en respectant votre vie privée et votre sécurité</string>
+    <string name="app_long_description"> Un gestionnaire de fichiers rapide et léger pour une utilisation quotidienne. Il offre une fonctionnalité de recherche conviviale, vous pouvez également personnaliser le dossier d\'accueil et sélectionner des dossiers favoris pour un accès rapide. L\'application contient plusieurs fonctions de sécurité puissantes, comme la protection par mot de passe des éléments cachés, la suppression des fichiers ou de l\'ensemble de l\'application. Vous pouvez choisir d\'utiliser un motif, un pin ou une empreinte digitale pour préserver la confidentialité de vos données. Cet organisateur de fichiers moderne prend en charge la navigation rapide des fichiers racines, des cartes SD et des périphériques USB. Pour que vous restiez productif, il dispose évidemment de toutes les opérations de fichiers standard comme renommer, copier, déplacer, supprimer, partager, etc. Il peut également être utilisé pour économiser de l\'espace de stockage, puisqu\'il permet également de compresser et de décompresser. Vous pouvez facilement créer de nouveaux fichiers ou dossiers si vous le souhaitez. Vous pouvez évidemment sélectionner le tri par plusieurs valeurs différentes, basculer entre le tri croissant et le tri décroissant, ou utiliser un tri spécifique par dossier. En quelques clics, vous pouvez également vérifier les propriétés d\'un fichier ou d\'un dossier, ce qui permet d\'afficher divers champs tels que la taille du fichier, la date de la dernière modification ou les valeurs EXIF comme la date de création, le modèle d\'appareil photo, etc. Pour obtenir rapidement le chemin d\'un fichier ou d\'un dossier, vous pouvez facilement le sélectionner en appuyant longuement dessus et le copier dans le presse-papiers. Vous pouvez créer des raccourcis de bureau pratiques pour accéder rapidement à vos éléments favoris. Il contient un éditeur de fichiers léger que vous pouvez utiliser pour imprimer des documents, les modifier ou les lire facilement à l\'aide de gestes de zoom, lorsque cela est nécessaire. Il est livré avec un design matériel et un thème sombre par défaut, ce qui offre une grande expérience utilisateur pour une utilisation facile. L\'absence d\'accès à Internet vous offre plus de confidentialité, de sécurité et de stabilité que les autres applications. Ne contient pas de publicités ni de permissions inutiles. Il est entièrement opensource, fournit des couleurs personnalisables. <b>Voyez la suite complète de Simple Tools ici :</b> https://www.simplemobiletools.com <b>Site web de Simple File Manager Pro :</b> https://www.simplemobiletools.com/filemanager <b>Facebook :</b> https://www.facebook.com/simplemobiletools <b>Reddit :</b> https://www.reddit.com/r/SimpleMobileTools </string>
+    <!--
+        Haven't found some strings? There's more at
+        https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res
+    -->
+</resources>

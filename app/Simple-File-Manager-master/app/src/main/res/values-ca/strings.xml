@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Simple File Manager</string>
+    <string name="app_launcher_name">Gestor de fitxers</string>
+    <string name="press_back_again">Premeu enrere de nou per sortir</string>
+    <string name="go_to_home_folder">Ves a la carpeta d\'inici</string>
+    <string name="set_as_home_folder">Estableix com a carpeta d\'inici</string>
+    <string name="home_folder_updated">S\'ha actualitzat la carpeta d\'inici</string>
+    <string name="copy_path">Copia el camí al porta-retalls</string>
+    <string name="path_copied">S\'ha copiat el camí</string>
+    <string name="select_audio_file">Seleccioneu un fitxer d\'àudio</string>
+    <string name="search_folder">Cerca carpeta</string>
+    <string name="rooted_device_only">Aquesta operació només funciona en dispositius amb «root»</string>
+    <string name="recents">Recents</string>
+    <string name="show_recents">Mostra els recents</string>
+    <string name="access_storage_prompt">Si us plau, concediu accés de la nostra aplicació a tots els vostres fitxers, és possible que no funcioni bé sense això.</string>
+    <!-- Open as -->
+    <string name="open_as">Obre com a</string>
+    <string name="text_file">Text file</string>
+    <string name="image_file">Fitxer d\'imatge</string>
+    <string name="audio_file">Fitxer d\'àudio</string>
+    <string name="video_file">Fitxer de vídeo</string>
+    <string name="other_file">Altres fitxers</string>
+    <!-- Compression -->
+    <string name="compress">Comprimeix</string>
+    <string name="decompress">Descomprimeix</string>
+    <string name="compress_as">Comprimeix com a</string>
+    <string name="compressing">S\'està comprimint…</string>
+    <string name="decompressing">S\'està descomprimint…</string>
+    <string name="compression_successful">Compressió correcta</string>
+    <string name="decompression_successful">Descompressió correcta</string>
+    <string name="compressing_failed">Ha fallat la compressió</string>
+    <string name="decompressing_failed">Ha fallat la descompressió</string>
+    <!-- Favorites -->
+    <string name="manage_favorites">Gestiona els preferits</string>
+    <string name="go_to_favorite">Ves als preferits</string>
+    <string name="favorites_activity_placeholder">Podeu afegir carpetes que utilitzeu amb freqüència als preferits per accedir fàcilment des de qualsevol lloc.</string>
+    <!-- File Editor -->
+    <string name="file_editor">Editor de fitxers</string>
+    <!-- Storage analysis -->
+    <string name="storage_analysis">Anàlisi d\'emmagatzematge</string>
+    <string name="images">Imatges</string>
+    <string name="videos">Vídeos</string>
+    <string name="audio">Àudio</string>
+    <string name="documents">Documents</string>
+    <string name="downloads">Baixades</string>
+    <string name="archives">Arxius</string>
+    <string name="others">Altres</string>
+    <string name="storage_free">lliure</string>
+    <string name="total_storage">Emmagatzematge total: %s</string>
+    <!-- Settings -->
+    <string name="enable_root_access">Habilita l\'accés «root»</string>
+    <string name="press_back_twice">Cal que premeu Enrere dues vegades per sortir de l\'aplicació</string>
+    <!-- Strings displayed only on Google Play Store. Optional, but good to have -->
+    <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
+    <string name="app_title">Simple File Manager Pro: gestioneu fitxers de manera fàcil i ràpida</string>
+    <!-- Short description has to have less than 80 chars -->
+    <string name="app_short_description">Aplicació fàcil per gestionar els fitxers sense anuncis, respectant la vostra privadesa i seguretat</string>
+    <string name="app_long_description"> Un gestor de fitxers ràpid i lleuger per a l\'ús diari. Ofereix una funcionalitat útil de cerca, també podeu personalitzar la carpeta d\'inici i seleccionar les carpetes preferides per accedir-hi ràpidament. L\'aplicació conté múltiples funcions potents relacionades amb la seguretat, com ara protegir amb contrasenya elements ocults, suprimir fitxers o tota l\'aplicació. Podeu triar entre utilitzar un patró, un pin o una empremta digital per mantenir privades les vostres dades. Aquest modern organitzador de fitxers admet la navegació ràpida de fitxers arrel, targetes SD i dispositius USB. Per mantenir la vostra productivitat, òbviament té totes les operacions estàndard de fitxers com canviar el nom, copiar, moure, suprimir, compartir, etc. Es pot utilitzar per estalviar una mica d\'emmagatzematge, ja que també permet comprimir i descomprimir. Podeu crear fàcilment fitxers o carpetes nous si ho voleu. Òbviament, podeu seleccionar l\'ordenació per diversos valors diferents, canviar entre ascendent i descendent o utilitzar una ordenació específica de carpeta. Amb només uns quants clics també podeu comprovar les propietats del fitxer o de la carpeta, que mostra diversos camps com la mida del fitxer, la data de l\'última modificació o valors EXIF com la data de creació, el model de càmera a les fotos, etc. Per obtenir un camí de fitxer o carpetes ràpidament, el podeu seleccionar fàcilment prement i copiant-lo al porta-retalls. Podeu crear dreceres d\'escriptori útils per accedir ràpidament als vostres elements preferits. Conté un editor de fitxers lleuger que podeu utilitzar per imprimir documents, editar-los o llegir-los fàcilment amb gestos de zoom, sempre que sigui necessari. De manera predeterminada, inclou el «material design» i un tema fosc, proporcionant una gran experiència d\'usuari per a un ús fàcil. La manca d\'accés a Internet us ofereix més privadesa, seguretat i estabilitat que altres aplicacions. No conté anuncis ni permisos innecessaris. És totalment de codi obert, proporciona colors personalitzables. <b>Consulteu el conjunt complet d\'eines Simples aquí:</b> https://www.simplemobiletools.com <b> Lloc web autònom de Simple File Manager Pro:</b> https://www.simplemobiletools.com/filemanager <b>Facebook:</b> https://www.facebook.com/simplemobiletools <b>Reddit:</b> https://www.reddit.com/r/SimpleMobileTools </string>
+    <!--
+        Haven't found some strings? There's more at
+        https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res
+    -->
+</resources>
