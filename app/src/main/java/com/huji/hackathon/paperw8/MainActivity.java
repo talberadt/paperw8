@@ -1,9 +1,11 @@
 package com.huji.hackathon.paperw8;
 
 import android.Manifest;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.os.Environment;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.Toast;
 
@@ -16,6 +18,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Logger;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -46,16 +49,28 @@ public class MainActivity extends AppCompatActivity {
         addBtn = findViewById(R.id.addButton);
         addBtn.setOnClickListener(v -> {
             if (checkPrem()) {
-                titles.add("new");
-                images.add(R.drawable.ic_baseline_drive_eta_24);
-                dataList.setLayoutManager(gridLayoutManager);
-                dataList.setAdapter(adapter);
-                String path = Environment.getExternalStorageDirectory().toString() + "/Documents/new";
-                File dir = new File(path);
-                dir.mkdir();
+//                String path = Environment.getExternalStorageDirectory().toString() + "/Documents/new";
+//                File dir = new File(path);
+//                dir.mkdir();
+                Intent intent = new Intent(v.getContext(), folderCreationForm.class);
+                v.getContext().startActivity(intent);
+
+
+
             }  else { requestPremission(); }
+
         });
 
+        if (getIntent().getStringExtra("folderName") != null){
+
+            titles.add(getIntent().getStringExtra("folderName"));
+            images.add(R.drawable.ic_baseline_drive_eta_24);
+            Log.e("aaaa", "bbbbbb");
+            dataList.setLayoutManager(gridLayoutManager);
+            dataList.setAdapter(adapter);
+
+
+        }
 
     }
 
