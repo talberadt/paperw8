@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
     RecyclerView dataList;
     List<String> titles;
     List<Integer> images;
-    Adapter adapter;
+    GridAdapter gridAdapter;
     Button addBtn;
 
     @Override
@@ -38,10 +38,10 @@ public class MainActivity extends AppCompatActivity {
             this.images.add(R.drawable.ic_baseline_drive_eta_24);
         }
 
-        adapter = new Adapter(this, titles, images);
+        gridAdapter = new GridAdapter(this, titles, images);
         GridLayoutManager gridLayoutManager = new GridLayoutManager(this, 3, GridLayoutManager.VERTICAL, false);
         dataList.setLayoutManager(gridLayoutManager);
-        dataList.setAdapter(adapter);
+        dataList.setAdapter(gridAdapter);
 
         addBtn = findViewById(R.id.addButton);
         addBtn.setOnClickListener(v -> {
@@ -49,9 +49,9 @@ public class MainActivity extends AppCompatActivity {
                 titles.add("new");
                 images.add(R.drawable.ic_baseline_drive_eta_24);
                 dataList.setLayoutManager(gridLayoutManager);
-                dataList.setAdapter(adapter);
-                String path = Environment.getExternalStorageDirectory().toString() + "/Documents/new";
-                new File(path).mkdir();
+                dataList.setAdapter(gridAdapter);
+                String path = Environment.getExternalStorageDirectory().toString() + "/Documents/new.pdf";
+                new File(path);
             }  else { requestPremission(); }
         });
 
