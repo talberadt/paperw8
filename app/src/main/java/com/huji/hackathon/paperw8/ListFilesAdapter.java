@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.PopupMenu;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -63,6 +64,26 @@ public class ListFilesAdapter extends RecyclerView.Adapter<ListFilesAdapter.View
                     Toast.makeText(context.getApplicationContext(), "Cannot open the file.", Toast.LENGTH_SHORT).show();
                 }
             }
+        });
+
+        holder.btn.setOnLongClickListener(v -> {
+            PopupMenu popupMenu = new PopupMenu(context, v);
+            popupMenu.getMenu().add("DELETE");
+            popupMenu.getMenu().add("MOVE");
+            popupMenu.getMenu().add("RENAME");
+            popupMenu.setOnMenuItemClickListener(item -> {
+                if (item.getTitle().equals("DELETE")) {
+                    boolean deleted = selectedFile.delete();
+                    if (deleted) {
+                        Toast.makeText(context.getApplicationContext(), "File deleted.", Toast.LENGTH_SHORT).show();
+                        v.setVisibility(View.GONE);
+                        v.refreshDrawableState();
+                    }
+                }
+                return true;
+            });
+            popupMenu.show();
+            return true;
         });
     }
 
