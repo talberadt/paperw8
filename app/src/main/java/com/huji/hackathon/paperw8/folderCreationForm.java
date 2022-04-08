@@ -43,8 +43,7 @@ public class folderCreationForm extends AppCompatActivity {
             progressBar.setVisibility(View.VISIBLE);
 
             String path = Environment.getExternalStorageDirectory().toString() + "/Documents/" + folderNameString;
-            File dir = new File(path);
-            dir.mkdir();
+            new File(path).mkdir();
 
             Intent intent = new Intent(v.getContext(), MainActivity.class);
             intent.putExtra("folderName",folderNameString);

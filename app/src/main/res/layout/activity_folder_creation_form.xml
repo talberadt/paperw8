@@ -24,12 +24,15 @@
 
     <EditText
         android:id="@+id/folderNameText"
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="228dp"
+        android:layout_marginStart="55dp"
+        android:layout_marginTop="150dp"
+        android:layout_marginEnd="55dp"
         android:ems="10"
         android:hint="Folder Name"
         android:inputType="textPersonName"
+        android:shadowRadius="3"
         android:text=""
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.243"
@@ -38,8 +41,11 @@
 
     <EditText
         android:id="@+id/folderTagsText"
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        android:layout_marginStart="55dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="55dp"
         android:layout_marginBottom="384dp"
         android:ems="10"
         android:hint="Tags"
@@ -47,10 +53,10 @@
         android:text=""
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.243"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/folderNameText"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintVertical_bias="0.182" />
 
     <Button
         android:id="@+id/SubmitButton"
@@ -63,7 +69,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/folderTagsText" />
 
     <ProgressBar
         android:id="@+id/progressBar2"

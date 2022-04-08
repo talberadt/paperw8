@@ -40,7 +40,7 @@ public class GridAdapter extends RecyclerView.Adapter<GridAdapter.ViewHolder> {
         holder.image.setImageResource(this.images.get(position));
         holder.btn.setOnClickListener(v -> {
             Intent intent = new Intent(v.getContext(), FileListActivity.class);
-            String path = Environment.getExternalStorageDirectory().toString();
+            String path = Environment.getExternalStorageDirectory().toString() + "/Documents/" + this.titles.get(position);
             intent.putExtra("path", path);
             v.getContext().startActivity(intent);
         });

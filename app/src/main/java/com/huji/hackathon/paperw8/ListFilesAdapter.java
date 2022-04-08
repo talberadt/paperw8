@@ -56,7 +56,7 @@ public class ListFilesAdapter extends RecyclerView.Adapter<ListFilesAdapter.View
                 try {
                 Intent intent = new Intent();
                 intent.setAction(android.content.Intent.ACTION_VIEW);
-                String type = "image/*";
+                String type = "application/pdf";
                 intent.setDataAndType(Uri.parse(selectedFile.getAbsolutePath()), type);
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 v.getContext().startActivity(intent);
@@ -75,7 +75,6 @@ public class ListFilesAdapter extends RecyclerView.Adapter<ListFilesAdapter.View
                     if (deleted) {
                         Toast.makeText(context.getApplicationContext(), "File deleted.", Toast.LENGTH_SHORT).show();
                         v.setVisibility(View.GONE);
-                        v.refreshDrawableState();
                     }
                 }
                 return true;
