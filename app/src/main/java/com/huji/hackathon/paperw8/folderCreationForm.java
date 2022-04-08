@@ -35,15 +35,21 @@ public class folderCreationForm extends AppCompatActivity {
         tags = findViewById(R.id.folderTagsText);
         addButton = findViewById(R.id.SubmitButton);
         progressBar = findViewById(R.id.progressBar2);
+        String path = Environment.getExternalStorageDirectory().toString() + "/Documents/";
 
 
+        if (getIntent().getStringExtra("path") != null) {
+            path = getIntent().getStringExtra("path");
+        }
+
+        String finalPath1 = path;
         addButton.setOnClickListener(v -> {
             String folderNameString = folderName.getText().toString().trim();
             List<String> folderTagsString = Arrays.asList(tags.getText().toString().split(","));
             progressBar.setVisibility(View.VISIBLE);
 
-            String path = Environment.getExternalStorageDirectory().toString() + "/Documents/" + folderNameString;
-            new File(path).mkdir();
+            String finalPath = finalPath1 + "/" + folderNameString;
+            new File(finalPath).mkdir();
 
             Intent intent = new Intent(v.getContext(), MainActivity.class);
             intent.putExtra("folderName",folderNameString);

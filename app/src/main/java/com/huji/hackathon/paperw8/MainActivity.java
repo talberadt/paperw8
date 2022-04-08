@@ -37,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
     List<Integer> images = new ArrayList<>();
     GridAdapter gridAdapter;
     Context context;
+    String documentsPath = Environment.getExternalStorageDirectory().toString() + "/Documents/";
 
 
 
@@ -59,21 +60,29 @@ public class MainActivity extends AppCompatActivity {
 
         btn.setOnClickListener(v -> {
             PopupMenu popupMenu = new PopupMenu(v.getContext(), v);
-            popupMenu.getMenu().add("FILE");
+            popupMenu.getMenu().add("CHOOSE FILE FROM DEVICE");
             popupMenu.getMenu().add("SCAN FILE");
+            popupMenu.getMenu().add("CHOOSE PHOTO FROM GALLERY");
             popupMenu.getMenu().add("FOLDER");
 
             popupMenu.setOnMenuItemClickListener(item -> {
 
                 if (checkPrem()) {
                     if (item.getTitle().equals("FOLDER")) {
-                            Intent intent = new Intent(v.getContext(), folderCreationForm.class);
-                            v.getContext().startActivity(intent);
+                        Intent intent = new Intent(v.getContext(), folderCreationForm.class);
+                        intent.putExtra("path", documentsPath);
+
+                        v.getContext().startActivity(intent);
                         }
 
-                    if (item.getTitle().equals("FILE")) {
-//                        Intent intent = new Intent(v.getContext(), folderCreationForm.class);
-//                        v.getContext().startActivity(intent);
+                    if (item.getTitle().equals("CHOOSE PHOTO FROM GALLERY")) {
+                        Intent pickPhoto = new Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                        startActivity(pickPhoto);
+                        return true;
+                    }
+
+                    if (item.getTitle().equals("CHOOSE FILE FROM DEVICE")) {
+
                         return true;
                     }
 
@@ -120,7 +129,7 @@ public class MainActivity extends AppCompatActivity {
         Integer[] basicImages = new Integer[] {R.drawable.ic_baseline_drive_eta_24,
                 R.drawable.ic_baseline_quickaccess, R.drawable.ic_baseline_attach_money_24,
                 R.drawable.ic_baseline_menu_book_24};
-        String documentsPath = Environment.getExternalStorageDirectory().toString() + "/Documents/";
+
         for (int i = 0; i < basicTitles.length; i++) {
             this.titles.add(basicTitles[i]);
             this.images.add(basicImages[i]);
