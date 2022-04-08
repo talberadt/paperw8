@@ -30,6 +30,12 @@ import com.google.mlkit.vision.text.TextRecognition;
 import com.google.mlkit.vision.text.TextRecognizer;
 import com.google.mlkit.vision.text.TextRecognizerOptions;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 public class ScannerAct extends AppCompatActivity {
 
     private ImageView captureIV;
@@ -44,8 +50,13 @@ public class ScannerAct extends AppCompatActivity {
         setContentView(R.layout.activity_scanner);
         captureIV = findViewById(R.id.idIVCapture);
         resultTV = findViewById(R.id.idTVDetect);
-        snapBtn = findViewById(R.id.idBtnSnap);
+//        snapBtn = findViewById(R.id.idBtnSnap);
         detectBtn = findViewById(R.id.idBtnDetect);
+        if(checkPrem()){
+            captureImage();
+        } else {
+            checkPermmitions();
+        }
         detectBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -53,16 +64,16 @@ public class ScannerAct extends AppCompatActivity {
             }
         });
 
-        snapBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if(checkPrem()){
-                    captureImage();
-                } else {
-                    checkPermmitions();
-                }
-            }
-        });
+//        snapBtn.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                if(checkPrem()){
+//                    captureImage();
+//                } else {
+//                    checkPermmitions();
+//                }
+//            }
+//        });
 
     }
     private boolean checkPrem(){
@@ -107,6 +118,8 @@ public class ScannerAct extends AppCompatActivity {
         }
     }
 
+
+
     private void detectText(){
         InputImage img = InputImage.fromBitmap(imageBitmap, 0);
         TextRecognizer recognizer = TextRecognition.getClient(TextRecognizerOptions.DEFAULT_OPTIONS);
@@ -114,8 +127,24 @@ public class ScannerAct extends AppCompatActivity {
             @Override
             public void onSuccess(Text text) {
                 StringBuilder res = new StringBuilder();
+                ArrayList<String> array = new ArrayList<>();
                 for(Text.TextBlock block: text.getTextBlocks()){
                     String blockText = block.getText();
+                    StringBuilder s = new StringBuilder();
+                    int counter = 0;
+                    for(char c: blockText.toCharArray()){
+                        if (Character.isDigit(c)){
+                            s.append(c);
+                        }
+                        if (c == '/'){
+                            s.append(c);
+                            counter++;
+                        }
+                    }
+                    if(counter == 2){
+                        array.add(s.toString());
+                    }
+
                     Point[] blockCornerPoint = block.getCornerPoints();
                     Rect blockFrame = block.getBoundingBox();
                     for(Text.Line line: block.getLines()){
@@ -127,7 +156,7 @@ public class ScannerAct extends AppCompatActivity {
                             res.append(elementText);
 
                         }
-                        resultTV.setText(blockText);
+                        resultTV.setText(array.get(0));
                     }
                 }
             }

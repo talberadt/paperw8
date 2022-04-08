@@ -6,14 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".ScannerAct">
 
-    <Button
-        android:id="@+id/idBtnSnap"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/idTVDetect"
-
-        android:layout_marginBottom="-293dp"
-        android:text="Snap" />
 
     <Button
         android:id="@+id/idBtnDetect"
