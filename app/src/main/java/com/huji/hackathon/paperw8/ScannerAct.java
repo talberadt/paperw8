@@ -28,7 +28,7 @@ import com.google.mlkit.vision.common.InputImage;
 import com.google.mlkit.vision.text.Text;
 import com.google.mlkit.vision.text.TextRecognition;
 import com.google.mlkit.vision.text.TextRecognizer;
-import com.google.mlkit.vision.text.TextRecognizerOptions;
+import com.google.mlkit.vision.text.latin.TextRecognizerOptions;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
@@ -40,7 +40,7 @@ public class ScannerAct extends AppCompatActivity {
 
     private ImageView captureIV;
     private TextView resultTV;
-    private Button snapBtn, detectBtn;
+    private Button detectBtn;
     private Bitmap imageBitmap;
     static final int REQUEST_IMAGE_CAPTURE = 1;
 
@@ -50,7 +50,6 @@ public class ScannerAct extends AppCompatActivity {
         setContentView(R.layout.activity_scanner);
         captureIV = findViewById(R.id.idIVCapture);
         resultTV = findViewById(R.id.idTVDetect);
-//        snapBtn = findViewById(R.id.idBtnSnap);
         detectBtn = findViewById(R.id.idBtnDetect);
         if(checkPrem()){
             captureImage();
@@ -67,11 +66,7 @@ public class ScannerAct extends AppCompatActivity {
 //        snapBtn.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View view) {
-//                if(checkPrem()){
-//                    captureImage();
-//                } else {
-//                    checkPermmitions();
-//                }
+//
 //            }
 //        });
 
@@ -132,32 +127,36 @@ public class ScannerAct extends AppCompatActivity {
                     String blockText = block.getText();
                     StringBuilder s = new StringBuilder();
                     int counter = 0;
-                    for(char c: blockText.toCharArray()){
-                        if (Character.isDigit(c)){
-                            s.append(c);
+                    if(!blockText.isEmpty())
+                    {
+                        for(char c: blockText.toCharArray()){
+                            if (Character.isDigit(c)){
+                                s.append(c);
+                            }
+                            if (c == '/'){
+                                s.append(c);
+                                counter++;
+                            }
                         }
-                        if (c == '/'){
-                            s.append(c);
-                            counter++;
+                        if(counter == 2){
+                            array.add(s.toString());
                         }
                     }
-                    if(counter == 2){
-                        array.add(s.toString());
-                    }
+                    resultTV.setText(array.get(0));
 
-                    Point[] blockCornerPoint = block.getCornerPoints();
-                    Rect blockFrame = block.getBoundingBox();
-                    for(Text.Line line: block.getLines()){
-                        String lineText = line.getText();
-                        Point[] lineCornerPoint = line.getCornerPoints();
-                        Rect lineRect = line.getBoundingBox();
-                        for(Text.Element element: line.getElements()){
-                            String elementText = element.getText();
-                            res.append(elementText);
-
-                        }
-                        resultTV.setText(array.get(0));
-                    }
+//                    Point[] blockCornerPoint = block.getCornerPoints();
+//                    Rect blockFrame = block.getBoundingBox();
+//                    for(Text.Line line: block.getLines()){
+//                        String lineText = line.getText();
+//                        Point[] lineCornerPoint = line.getCornerPoints();
+//                        Rect lineRect = line.getBoundingBox();
+//                        for(Text.Element element: line.getElements()){
+//                            String elementText = element.getText();
+//                            res.append(elementText);
+//
+//                        }
+//
+//                    }
                 }
             }
         }).addOnFailureListener(new OnFailureListener() {

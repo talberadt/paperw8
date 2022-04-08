@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/black_shade_1"
+    android:background="@color/white"
     tools:context=".MainActivity">
 
     <!--    </androidx.core.widget.NestedScrollView>-->
@@ -23,11 +23,13 @@
         android:id="@+id/fab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
         android:layout_gravity="bottom|end"
-        android:layout_marginEnd="25dp"
-        android:layout_marginBottom="25dp"
-        android:contentDescription="aa"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="32dp"
         android:backgroundTint="#00CC99"
+        android:contentDescription="aa"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:srcCompat="@drawable/ic_baseline_add_24" />
@@ -36,19 +38,9 @@
         android:id="@+id/imageView"
         android:layout_width="408dp"
         android:layout_height="210dp"
-        android:src="@drawable/skrrrbrr"
-    <Button
-        android:id="@+id/imgButton"
-        android:layout_width="139dp"
-        android:layout_height="110dp"
-        android:text="image capture"
-        app:layout_constraintBottom_toBottomOf="@+id/dataList"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.012" />
+        android:src="@drawable/skrrrbrr" />
 
-<!--    <com.google.android.material.floatingactionbutton.FloatingActionButton-->
+    <!--    <com.google.android.material.floatingactionbutton.FloatingActionButton-->
 <!--        android:id="@+id/fileFAB"-->
 <!--        android:layout_width="wrap_content"-->
 <!--        android:layout_height="wrap_content"-->

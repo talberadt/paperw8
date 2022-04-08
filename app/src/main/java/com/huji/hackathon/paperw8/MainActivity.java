@@ -64,16 +64,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        captureB = findViewById(R.id.imgButton);
-        captureB.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent i = new Intent(MainActivity.this, ScannerAct.class);
-                startActivity(i);
-            }
-        });
-
-
         dataList = findViewById(R.id.dataList);
         btn = findViewById(R.id.fab);
         titles = new ArrayList<>();
@@ -107,7 +97,8 @@ public class MainActivity extends AppCompatActivity {
                     }
 
                     if (item.getTitle().equals("SCAN FILE")){
-                        return true;
+                        Intent i = new Intent(MainActivity.this, ScannerAct.class);
+                        startActivity(i);
 
                     }
                     return true;
