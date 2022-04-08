@@ -15,13 +15,13 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
-public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
+public class GridAdapter extends RecyclerView.Adapter<GridAdapter.ViewHolder> {
 
     List<String> titles;
     List<Integer> images;
     LayoutInflater inflater;
 
-    public Adapter(Context context, List<String> titles, List<Integer> images) {
+    public GridAdapter(Context context, List<String> titles, List<Integer> images) {
         this.titles = titles;
         this.images = images;
         this.inflater = LayoutInflater.from(context);
@@ -40,7 +40,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
         holder.image.setImageResource(this.images.get(position));
         holder.btn.setOnClickListener(v -> {
             Intent intent = new Intent(v.getContext(), FileListActivity.class);
-            String path = Environment.getExternalStorageDirectory().toString();
+            String path = Environment.getExternalStorageDirectory().toString() + "/Documents/" + this.titles.get(position);
             intent.putExtra("path", path);
             v.getContext().startActivity(intent);
         });
