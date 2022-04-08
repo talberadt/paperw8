@@ -60,8 +60,8 @@ public class MainActivity extends AppCompatActivity {
             popupMenu.getMenu().add("SCAN FILE");
             popupMenu.getMenu().add("FOLDER");
 
-
             popupMenu.setOnMenuItemClickListener(item -> {
+
                 if (checkPrem()) {
                     if (item.getTitle().equals("FOLDER")) {
                             Intent intent = new Intent(v.getContext(), folderCreationForm.class);
@@ -84,8 +84,7 @@ public class MainActivity extends AppCompatActivity {
             popupMenu.show();
             return true;
         });
-
-
+            popupMenu.show();
         });
 
         if (getIntent().getStringExtra("folderName") != null){
