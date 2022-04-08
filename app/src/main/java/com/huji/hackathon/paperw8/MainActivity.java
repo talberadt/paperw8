@@ -41,6 +41,11 @@ public class MainActivity extends AppCompatActivity {
         this.titles.add("חשבונות");
         this.titles.add("לימודים");
         this.images.add(R.drawable.ic_baseline_domain_verification_24);
+        this.images.add(R.drawable.ic_baseline_domain_verification_24);
+        this.images.add(R.drawable.ic_baseline_domain_verification_24);
+        this.images.add(R.drawable.ic_baseline_domain_verification_24);
+
+
 
         gridAdapter = new GridAdapter(this, titles, images);
         GridLayoutManager gridLayoutManager = new GridLayoutManager(this, 3, GridLayoutManager.VERTICAL, false);
