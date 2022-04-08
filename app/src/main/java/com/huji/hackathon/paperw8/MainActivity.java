@@ -1,12 +1,15 @@
 package com.huji.hackathon.paperw8;
 
 import android.Manifest;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.os.Environment;
 import android.util.Log;
+import android.view.View;
 import android.widget.Button;
+import android.widget.PopupMenu;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -19,7 +22,6 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.huji.hackathon.paperw8.databinding.ActivityMain2Binding;
 
 import java.io.File;
 import java.io.IOException;
@@ -34,6 +36,9 @@ public class MainActivity extends AppCompatActivity {
     List<String> titles = new ArrayList<>();
     List<Integer> images = new ArrayList<>();
     GridAdapter gridAdapter;
+    Context context;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,20 +47,47 @@ public class MainActivity extends AppCompatActivity {
 
         dataList = findViewById(R.id.dataList);
         btn = findViewById(R.id.fab);
+        titles = new ArrayList<>();
+        images = new ArrayList<>();
 
         setBasicFolders();
 
-        gridAdapter = new GridAdapter(this, this.titles, this.images);
+        gridAdapter = new GridAdapter(this, titles, images);
         GridLayoutManager gridLayoutManager = new GridLayoutManager(this, 2, GridLayoutManager.VERTICAL, false);
         dataList.setLayoutManager(gridLayoutManager);
         dataList.setAdapter(gridAdapter);
 
         btn.setOnClickListener(v -> {
-            if (checkPrem()) {
-                Intent intent = new Intent(v.getContext(), folderCreationForm.class);
-                v.getContext().startActivity(intent);
-            }  else { requestPremission(); }
+            PopupMenu popupMenu = new PopupMenu(v.getContext(), v);
+            popupMenu.getMenu().add("FILE");
+            popupMenu.getMenu().add("SCAN FILE");
+            popupMenu.getMenu().add("FOLDER");
 
+            popupMenu.setOnMenuItemClickListener(item -> {
+
+                if (checkPrem()) {
+                    if (item.getTitle().equals("FOLDER")) {
+                            Intent intent = new Intent(v.getContext(), folderCreationForm.class);
+                            v.getContext().startActivity(intent);
+                        }
+
+                    if (item.getTitle().equals("FILE")) {
+//                        Intent intent = new Intent(v.getContext(), folderCreationForm.class);
+//                        v.getContext().startActivity(intent);
+                        return true;
+                    }
+
+                    if (item.getTitle().equals("SCAN FILE")){
+                        return true;
+
+                    }
+                    return true;
+            }
+                else { requestPremission(); };
+            popupMenu.show();
+            return true;
+        });
+            popupMenu.show();
         });
 
         if (getIntent().getStringExtra("folderName") != null) {
@@ -63,6 +95,7 @@ public class MainActivity extends AppCompatActivity {
             images.add(R.drawable.ic_baseline_blackfolder);
             dataList.setLayoutManager(gridLayoutManager);
             dataList.setAdapter(gridAdapter);
+
         }
 
     }
