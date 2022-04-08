@@ -50,7 +50,6 @@ public class Create_file extends AppCompatActivity {
                 else if(optionsMenu[i].equals("Choose from Gallery")){
                     // choose from  external storage
                     Intent pickPhoto = new Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-                    startActivityForResult(pickPhoto , 1);
                 }
                 else if (optionsMenu[i].equals("Exit")) {
                     dialogInterface.dismiss();
