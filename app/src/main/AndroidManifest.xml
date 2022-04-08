@@ -14,6 +14,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Paperw8">
         <activity
+            android:name=".MainActivity2"
+            android:exported="false"
+            android:label="@string/title_activity_main2"
+            android:theme="@style/Theme.Paperw8.NoActionBar" />
+        <activity
             android:name=".FileListActivity"
             android:exported="false" />
         <activity

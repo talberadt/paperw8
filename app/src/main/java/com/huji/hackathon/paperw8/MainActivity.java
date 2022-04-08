@@ -12,8 +12,12 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
+import androidx.navigation.ui.AppBarConfiguration;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.huji.hackathon.paperw8.databinding.ActivityMain2Binding;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -22,39 +26,33 @@ import java.util.logging.Logger;
 
 public class MainActivity extends AppCompatActivity {
 
+    FloatingActionButton btn;
     RecyclerView dataList;
     List<String> titles;
     List<Integer> images;
     GridAdapter gridAdapter;
-    Button addBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         dataList = findViewById(R.id.dataList);
+        btn = findViewById(R.id.fab);
         titles = new ArrayList<>();
         images = new ArrayList<>();
 
-        this.titles.add("גישה מהירה");
-        this.titles.add("רכב");
-        this.titles.add("חשבונות");
-        this.titles.add("לימודים");
-        this.images.add(R.drawable.ic_baseline_domain_verification_24);
+        setBasicFolders();
 
         gridAdapter = new GridAdapter(this, titles, images);
-        GridLayoutManager gridLayoutManager = new GridLayoutManager(this, 3, GridLayoutManager.VERTICAL, false);
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(this, 2, GridLayoutManager.VERTICAL, false);
         dataList.setLayoutManager(gridLayoutManager);
         dataList.setAdapter(gridAdapter);
 
-        addBtn = findViewById(R.id.addButton);
-        addBtn.setOnClickListener(v -> {
+        btn.setOnClickListener(v -> {
             if (checkPrem()) {
                 Intent intent = new Intent(v.getContext(), folderCreationForm.class);
                 v.getContext().startActivity(intent);
-
-
-
             }  else { requestPremission(); }
 
         });
@@ -84,6 +82,17 @@ public class MainActivity extends AppCompatActivity {
 
         }
         ActivityCompat.requestPermissions(MainActivity.this, new String[] {Manifest.permission.WRITE_EXTERNAL_STORAGE}, 111);       //
+    }
+
+    private void setBasicFolders() {
+        this.titles.add("רכב");
+        this.titles.add("גישה מהירה");
+        this.titles.add("חשבונות");
+        this.titles.add("לימודים");
+        this.images.add(R.drawable.ic_baseline_drive_eta_24);
+        this.images.add(R.drawable.ic_baseline_domain_verification_24);
+        this.images.add(R.drawable.ic_baseline_attach_money_24);
+        this.images.add(R.drawable.ic_baseline_menu_book_24);
     }
 
 }
