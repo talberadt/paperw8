@@ -1,11 +1,18 @@
 package com.huji.hackathon.paperw8;
 
 import android.Manifest;
+import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
+import android.provider.MediaStore;
+import android.util.Base64;
+import android.view.View;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -13,6 +20,7 @@ import android.widget.PopupMenu;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.app.ActivityCompat;
@@ -21,6 +29,12 @@ import androidx.navigation.ui.AppBarConfiguration;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.firebase.functions.FirebaseFunctions;
+import com.google.firebase.functions.HttpsCallableResult;
+//import com.google.firebase.ml.vision.common.FirebaseVisionImage;
+//import com.google.firebase.ml.vision.common.FirebaseVisionImageMetadata;
+
+import java.io.ByteArrayOutputStream;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.io.File;
@@ -28,6 +42,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Logger;
+
+
 
 public class MainActivity extends AppCompatActivity {
 
@@ -40,10 +56,23 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+    private Button captureB;
+
+    @SuppressLint("WrongThread")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        captureB = findViewById(R.id.imgButton);
+        captureB.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(MainActivity.this, ScannerAct.class);
+                startActivity(i);
+            }
+        });
+
 
         dataList = findViewById(R.id.dataList);
         btn = findViewById(R.id.fab);
